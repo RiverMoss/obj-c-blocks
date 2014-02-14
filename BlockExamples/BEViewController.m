@@ -26,4 +26,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showModalView{
+    [self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>]
+}
+
 @end
