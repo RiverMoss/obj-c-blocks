@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BESubViewController.h"
 
 @interface BEViewController : UIViewController
 

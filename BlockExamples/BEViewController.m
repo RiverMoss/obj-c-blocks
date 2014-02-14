@@ -25,9 +25,27 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)showModalView{
-    [self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>]
+- (IBAction)showSubview:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                         bundle:nil];
+    BESubViewController *subviewController =
+    [storyboard instantiateViewControllerWithIdentifier:@"subview"];
+    
+    [self presentViewController:subviewController animated:YES completion:^{
+    NSLog(@"Subview opened.");
+    [NSTimer scheduledTimerWithTimeInterval:10.0
+                                         target:self
+                                       selector:@selector(dismissSubview)
+                                       userInfo:nil
+                                        repeats:NO];
+    }];
 }
+
+-(void)dismissSubview{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Subview closed.");
+    }];
+}
+
 
 @end
